@@ -19,4 +19,3 @@ module.exports = {
 		interaction.followUp({ embeds: [newEmbed] });
 	},
 };
-// test

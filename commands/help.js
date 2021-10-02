@@ -11,11 +11,19 @@ module.exports = {
      */
 	run: async (client, message, interaction) => {
 		const newEmbed = new MessageEmbed()
-			.setColor('#CCA383')
-			.setTitle('Texture Pack Commands')
-			.setURL('https://dsc.gg/packs')
-			.setDescription('bruh')
-			.setImage('https://cdn.discordapp.com/avatars/893037327440568371/e2fce81f5b26bc463a0f9d5f46cb05d4.png?size=80');
+			.setColor('#41A2D5')
+			.setTitle('Prefix - `!`')
+			.setAuthor('Command List', message.author.displayAvatarURL())
+			.setThumbnail('https://i.imgur.com/Nm1fOf2.png')
+
+			.addFields({
+				name: ':shield: Moderation',
+				value: '`ban` | `unban` | `kick` | `warn` | `mute` | `purge` | `lock` | `lockend`',
+			},
+			{
+				name: ':scroll: Information',
+				value: '`ping` | `userinfo` | `serverinfo`',
+			});
 		message.channel.send({ embeds: [newEmbed] });
 	},
 };
