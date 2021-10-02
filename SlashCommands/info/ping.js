@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const { Message, Client, MessageEmbed } = require("discord.js");
+const { Client, MessageEmbed, User } = require("discord.js");
 
 module.exports = {
 	name: "ping",
@@ -11,6 +11,11 @@ module.exports = {
      * @param {String[]} args
      */
 	run: async (client, interaction) => {
-		interaction.followUp({ content: `Pong! ${client.ws.ping}ms`, ephemeral: true });
+		const embed = new MessageEmbed()
+			.setAuthor(interaction.user.username, interaction.user.displayAvatarURL({ dynamic: true }))
+			.addField('Ping', `${client.ws.ping}ms`)
+			.setColor('RANDOM')
+			.setTimestamp();
+		interaction.followUp({ embeds: [embed] });
 	},
 };
