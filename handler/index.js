@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-vars */
-const { glob } = require('glob');
-const { promisify } = require('util');
-const { Client } = require('discord.js');
-const chalk = require('chalk');
+const { glob } = require("glob");
+const { promisify } = require("util");
+const { Client } = require("discord.js");
 
 const globPromise = promisify(glob);
 
@@ -14,7 +13,7 @@ module.exports = async (client) => {
 	const commandFiles = await globPromise(`${process.cwd()}/commands/**/*.js`);
 	commandFiles.map((value) => {
 		const file = require(value);
-		const splitted = value.split('/');
+		const splitted = value.split("/");
 		const directory = splitted[splitted.length - 2];
 
 		if (file.name) {
@@ -38,15 +37,22 @@ module.exports = async (client) => {
 		if (!file?.name) return;
 		client.slashCommands.set(file.name, file);
 
-		if (['MESSAGE', 'USER'].includes(file.type)) delete file.description;
+		if (["MESSAGE", "USER"].includes(file.type)) delete file.description;
 		arrayOfSlashCommands.push(file);
 	});
-	client.on('ready', async () => {
-		await client.application.commands.set(arrayOfSlashCommands);
+	client.on("ready", async () => {
+		// Register for a single guild
+		await client.guilds.cache
+			.get("864137754959151127")
+			.commands.set(arrayOfSlashCommands);
 
-		// If you wish to un-register your slash commands change the line below to: await client.application.commands.set([])
-		// await client.application.commands.set(arrayOfSlashCommands); to apply / commands globally.
-
-
+		// Register for all the guilds the bot is in
+		// await client.application.commands.set(arrayOfSlashCommands);
 	});
+
+
+	// If you wish to un-register your slash commands change the line below to: await client.application.commands.set([])
+	// await client.application.commands.set(arrayOfSlashCommands); to apply / commands globally.
+
+
 };

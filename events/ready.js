@@ -24,5 +24,5 @@ client.once('ready', () => {
 });
 
 client.on('error', () => {
-	console.log(chalk.blueBright('<ready.js>')(' Oh no! An error had occuerd. Please file an issue on https://github.com/korauo/ulob if you think that it is an error with our code.'));
+	console.log(chalk.blueBright('<ready.js>')(' Oh no! An error had occured. Please file an issue on https://github.com/korauo/ulob if you think that it is an error with our code.'));
 });

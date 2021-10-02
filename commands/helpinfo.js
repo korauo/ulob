@@ -3,7 +3,7 @@ const pagination = require('discord.js-pagination');
 const Discord = require('discord.js');
 
 module.exports = {
-	name: "help",
+	name: "helpp",
 	/**
      *
      * @param {Client} client
