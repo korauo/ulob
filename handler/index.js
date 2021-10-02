@@ -42,10 +42,7 @@ module.exports = async (client) => {
 		arrayOfSlashCommands.push(file);
 	});
 	client.on('ready', async () => {
-		// Only registers with a single guild
-		await client.guilds.cache
-			.get("864137754959151127")
-			.commands.set(arrayOfSlashCommands);
+		await client.application.commands.set(arrayOfSlashCommands);
 
 		// If you wish to un-register your slash commands change the line below to: await client.application.commands.set([])
 		// await client.application.commands.set(arrayOfSlashCommands); to apply / commands globally.
