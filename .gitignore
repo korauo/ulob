@@ -1,0 +1,7 @@
+# Main things
+node_modules
+.env
+
+# Logging
+readyLog.log
+antiCrashLog.log
