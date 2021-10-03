@@ -23,7 +23,6 @@ module.exports = {
 			message.channel.send('Sucessfully kicked the user.');
 		}
 		catch (err) {
-
 		}
 
 		try {
