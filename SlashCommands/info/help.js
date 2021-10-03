@@ -12,26 +12,16 @@ module.exports = {
 			required: true,
 			choices: [
 				{
-<<<<<<< HEAD
 					name: 'Bot Information',
 					value: 'bot-information',
-=======
-					name: 'Bot info',
-					value: 'bot-info',
->>>>>>> d0610f4ffaab43fddc66110883ceaa8236d6fd38
 				},
 				{
 					name: 'Moderation',
 					value: 'moderation',
 				},
 				{
-<<<<<<< HEAD
 					name: 'Information',
 					value: 'information',
-=======
-					name: 'Info',
-					value: 'info',
->>>>>>> d0610f4ffaab43fddc66110883ceaa8236d6fd38
 				},
 			],
 		},
@@ -44,14 +34,8 @@ module.exports = {
      */
 	run: async (client, interaction) => {
 		const category = interaction.options.getString('category');
-<<<<<<< HEAD
 		// bot-info string
 		if (category === 'bot-information') {
-=======
-
-		// bot-info string
-		if (category === 'bot-info') {
->>>>>>> d0610f4ffaab43fddc66110883ceaa8236d6fd38
 			const infoEmbed = new MessageEmbed()
 				.setColor(0x9EC1CF)
 				.setTitle('Bot Information')
@@ -59,10 +43,6 @@ module.exports = {
 				.addField('**Pages**', '`1. Bot Information`, `2. Moderation`, `3. Information`');
 			return interaction.followUp({ embeds: [infoEmbed] });
 		}
-<<<<<<< HEAD
-=======
-
->>>>>>> d0610f4ffaab43fddc66110883ceaa8236d6fd38
 		// moderation string
 		if (category === 'moderation') {
 			const modEmbed = new MessageEmbed()
@@ -78,10 +58,6 @@ module.exports = {
 				.addField('`!lockend`', 'End lockdown of a channel');
 			return interaction.followUp({ embeds: [modEmbed] });
 		}
-<<<<<<< HEAD
-=======
-
->>>>>>> d0610f4ffaab43fddc66110883ceaa8236d6fd38
 		// info string
 		if (category === 'info') {
 			const infoEmbed = new MessageEmbed()
@@ -92,9 +68,6 @@ module.exports = {
 				.addField('`!serverinfo`', 'Tells you the info of a server');
 			return interaction.followUp({ embeds: [infoEmbed] });
 		}
-<<<<<<< HEAD
 
-=======
->>>>>>> d0610f4ffaab43fddc66110883ceaa8236d6fd38
 	},
 };
