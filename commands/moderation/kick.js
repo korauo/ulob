@@ -20,7 +20,7 @@ module.exports = {
 
 
 		try {
-			message.channel.send('Sucessfully kicked the user.');
+			message.channel.send('**Sucessfully kicked the user.**');
 		}
 		catch (err) {
 		}
@@ -32,7 +32,12 @@ module.exports = {
 				.setDescription(`${message.author} successfully kicked ${mentionMember} for ${reason}.`)
 				.setTimestamp()
 				.setColor('DARK_RED')
-				.setFooter(`${User.username}`, User.avatar);
+                .setFooter(
+                    `Requested by ${message.author.tag}`,
+                    message.author.displayAvatarURL({
+                        dynamic: true
+                    })
+                )
 			message.channel.send({ embeds: [guildKick] });
 		}
 		catch (err) {

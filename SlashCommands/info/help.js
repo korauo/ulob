@@ -12,16 +12,16 @@ module.exports = {
 			required: true,
 			choices: [
 				{
-					name: 'Bot info',
-					value: 'bot-info',
+					name: 'Bot Information',
+					value: 'bot-information',
 				},
 				{
 					name: 'Moderation',
 					value: 'moderation',
 				},
 				{
-					name: 'Info',
-					value: 'info',
+					name: 'Information',
+					value: 'information',
 				},
 			],
 		},
@@ -34,9 +34,8 @@ module.exports = {
      */
 	run: async (client, interaction) => {
 		const category = interaction.options.getString('category');
-
 		// bot-info string
-		if (category === 'bot-info') {
+		if (category === 'bot-information') {
 			const infoEmbed = new MessageEmbed()
 				.setColor(0x9EC1CF)
 				.setTitle('Bot Information')
@@ -44,7 +43,6 @@ module.exports = {
 				.addField('**Pages**', '`1. Bot Information`, `2. Moderation`, `3. Information`');
 			return interaction.followUp({ embeds: [infoEmbed] });
 		}
-
 		// moderation string
 		if (category === 'moderation') {
 			const modEmbed = new MessageEmbed()
@@ -60,7 +58,6 @@ module.exports = {
 				.addField('`!lockend`', 'End lockdown of a channel');
 			return interaction.followUp({ embeds: [modEmbed] });
 		}
-
 		// info string
 		if (category === 'info') {
 			const infoEmbed = new MessageEmbed()
@@ -71,5 +68,6 @@ module.exports = {
 				.addField('`!serverinfo`', 'Tells you the info of a server');
 			return interaction.followUp({ embeds: [infoEmbed] });
 		}
+
 	},
 };
