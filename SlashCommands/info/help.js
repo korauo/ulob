@@ -34,6 +34,7 @@ module.exports = {
      */
 	run: async (client, interaction) => {
 		const category = interaction.options.getString('category');
+
 		// bot-info string
 		if (category === 'bot-info') {
 			const infoEmbed = new MessageEmbed()
@@ -43,6 +44,7 @@ module.exports = {
 				.addField('**Pages**', '`1. Bot Information`, `2. Moderation`, `3. Information`');
 			return interaction.followUp({ embeds: [infoEmbed] });
 		}
+
 		// moderation string
 		if (category === 'moderation') {
 			const modEmbed = new MessageEmbed()
@@ -58,6 +60,7 @@ module.exports = {
 				.addField('`!lockend`', 'End lockdown of a channel');
 			return interaction.followUp({ embeds: [modEmbed] });
 		}
+
 		// info string
 		if (category === 'info') {
 			const infoEmbed = new MessageEmbed()
