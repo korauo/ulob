@@ -28,6 +28,7 @@ module.exports = {
 
 		try {
 			await mentionMember.send(kickembed);
+			message.channel.send('Sucessfully kicked the user.');
 		}
 		catch (err) {
 
