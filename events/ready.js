@@ -2,8 +2,7 @@ const client = require('../index');
 const chalk = require('chalk');
 const winston = require('winston');
 
-const botActivity = require('../config.json').status;
-const botPresence = require('../config.json').presence;
+const botStatus = require('../config.json').status;
 
 // Winston logging
 const logger = winston.createLogger({
@@ -16,8 +15,7 @@ const logger = winston.createLogger({
 
 
 client.once('ready', () => {
-	client.user.setActivity(botActivity);
-	client.user.setPresence(botPresence);
+	client.user.setActivity(botStatus, { type: 'LISTENING' });
 	logger.info(chalk.blueBright(`${client.user.tag} is up and ready to go!`));
 	logger.info(chalk.blueBright(`You should be able to use slash commands and normal commands properly.`));
 	logger.info(chalk.yellow('Restart the terminal and/or wait to register the slash commands.'));

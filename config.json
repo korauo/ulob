@@ -1,5 +1,4 @@
 {
     "prefix": "!",
-    "status": "!help",
-    "presence": "dnd"
+    "status": "!help"
 }
