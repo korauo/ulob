@@ -1,32 +1,39 @@
-const Discord = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: "ban",
-	description: "ban command",
+	description: "Ban command",
 
-	async run(bot, message, args) {
-		if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("You cant use this command!");
+	async run(client, message, args) {
+		if (!message.member.permissions.has("BAN_MEMBERS")) return message.channel.send("You can't use this command!");
 
 		const mentionMember = message.mentions.members.first();
 		let reason = args.slice(1).join(" ");
-		if (!reason) reason = "No reason given";
+		if (!reason) reason = "no reason";
 
-		const embed = new Discord.MessageEmbed()
-			.setTitle(`You were banned from **${message.guild.name}**`)
-			.setDescription(`Reason: ${reason}`)
-			.setColor("RANDOM")
-			.setTimestamp()
-			.setFooter(bot.user.tag, bot.user.displayAvatarURL());
-
-		if (!args[0]) return message.channel.send("You need to specify a user to ban");
+		if (!args[0]) return message.channel.send("You need to specify a user to ban.");
 
 		if (!mentionMember) return message.channel.send("This user is not a valid user / is no-longer in the server!");
 
-		if (!mentionMember.bannable) return message.channel.send("I was unable to ban this user!");
+		if (!mentionMember.bannable) return message.channel.send("I was unable to ban this user due to role hierarchy.");
 
-		await mentionMember.send(embed);
-		await mentionMember.ban({
-			reason: reason,
-		}).then(() => message.channel.send("Successfully banned: " + mentionMember.user.tag));
+
+		try {
+			await mentionMember.ban();
+			const guildKick = new MessageEmbed()
+				.setAuthor(`Kick in ${message.guild}`)
+				.setDescription(`${message.author} successfully kicked ${mentionMember} for ${reason}.`)
+				.setTimestamp()
+				.setColor('DARK_RED')
+				.setFooter(`Requested by ${message.author.tag}`,
+					message.author.displayAvatarURL({
+						dynamic: true,
+					}),
+				);
+			message.channel.send({ embeds: [guildKick] });
+		}
+		catch (err) {
+			message.channel.send(`An error had occured: ${err}`);
+		}
 	},
 };
