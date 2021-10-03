@@ -6,7 +6,7 @@ module.exports = {
 	description: "kick command",
 
 	async run(bot, message, args) {
-		if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("You cant use this command!");
+		if (!message.member.permissions.has("KICK_MEMBERS")) return message.channel.send("You can't use this command!");
 
 		const mentionMember = message.mentions.members.first();
 		let reason = args.slice(1).join(" ");
