@@ -1,5 +1,5 @@
 /* eslint-disable no-empty */
-const { MessageEmbed, User } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: "kick",
@@ -32,12 +32,11 @@ module.exports = {
 				.setDescription(`${message.author} successfully kicked ${mentionMember} for ${reason}.`)
 				.setTimestamp()
 				.setColor('DARK_RED')
-                .setFooter(
-                    `Requested by ${message.author.tag}`,
-                    message.author.displayAvatarURL({
-                        dynamic: true
-                    })
-                )
+				.setFooter(`Requested by ${message.author.tag}`,
+					message.author.displayAvatarURL({
+						dynamic: true,
+					}),
+				);
 			message.channel.send({ embeds: [guildKick] });
 		}
 		catch (err) {
