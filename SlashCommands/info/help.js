@@ -68,6 +68,6 @@ module.exports = {
 				.addField('`!serverinfo`', 'Tells you the info of a server');
 			return interaction.followUp({ embeds: [infoEmbed] });
 		}
-
+// did this commit not get pushed or sum?
 	},
 };
