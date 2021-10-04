@@ -36,18 +36,18 @@ module.exports = {
 		const category = interaction.options.getString('category');
 		// bot-info string
 		if (category === 'bot-information') {
-			const infoEmbed = new MessageEmbed()
+			const infoBotEmbed = new MessageEmbed()
 				.setColor(0x9EC1CF)
-				.setTitle('Bot Information')
+				.setTitle('<:511795868583:894273449231532063> Bot Information')
 				.addField('**Prefix**', 'Bots prefix is: `!`')
 				.addField('**Pages**', '`1. Bot Information`, `2. Moderation`, `3. Information`');
-			return interaction.followUp({ embeds: [infoEmbed] });
+			return interaction.followUp({ embeds: [infoBotEmbed] });
 		}
 		// moderation string
 		if (category === 'moderation') {
 			const modEmbed = new MessageEmbed()
 				.setColor(0xFF6663)
-				.setTitle('Moderation')
+				.setTitle('<:534908853201:894270297723797554> Moderation')
 				.addField('`!ban`', 'Ban a member.')
 				.addField('`!unban`', 'Unban a member.')
 				.addField('`!kick`', 'Kick a member.')
@@ -59,10 +59,10 @@ module.exports = {
 			return interaction.followUp({ embeds: [modEmbed] });
 		}
 		// info string
-		if (category === 'info') {
+		if (category === 'information') {
 			const infoEmbed = new MessageEmbed()
 				.setColor(0xFDFD97)
-				.setTitle('Information')
+				.setTitle('<:382067908570:894270287720357948> Information')
 				.addField('`!ping`', 'Ask it a question and it will respond.....')
 				.addField('`!userinfo`', 'Tells you the info of an user')
 				.addField('`!serverinfo`', 'Tells you the info of a server');

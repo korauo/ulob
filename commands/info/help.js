@@ -11,10 +11,10 @@ module.exports = {
      */
 	run: async (client, message, args) => {
 		const newEmbed = new MessageEmbed()
-			.setColor('#41A2D5')
+			.setColor('#2F3136')
 			.setTitle('Prefix - `!`')
-			.addField(':shield: Moderation', '`ban` | `unban` | `kick` | `warn` | `mute` | `purge` | `lock` | `lockend`')
-			.addField(':scroll: Information', '`ping` | `userinfo` | `serverinfo`');
+			.addField('<:534908853201:894270297723797554> Moderation', '`ban` | `unban` | `kick` | `warn` | `mute` | `purge` | `lock` | `lockend`')
+			.addField('<:382067908570:894270287720357948> Information', '`ping` | `userinfo` | `serverinfo`');
 		message.channel.send({ embeds: [newEmbed] });
 	},
 };
