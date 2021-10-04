@@ -13,8 +13,7 @@ module.exports = {
 	run: async (client, interaction) => {
 		const embed = new MessageEmbed()
 			.setAuthor(interaction.user.username, interaction.user.displayAvatarURL({ dynamic: true }))
-			.addField('Ping', `${client.ws.ping}ms`)
-			.setColor('RANDOM')
+			.addField('Ping', `<:432499879844:894247293350477844>${client.ws.ping}ms`)
 			.setTimestamp();
 		interaction.followUp({ embeds: [embed] });
 	},
