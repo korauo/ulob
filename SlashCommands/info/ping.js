@@ -2,20 +2,21 @@
 const { Client, MessageEmbed, User } = require("discord.js");
 
 module.exports = {
-	name: "ping",
-	description: 'Returns ping',
-	/**
+    name: "ping",
+    description: 'Returns ping',
+    /**
      *
      * @param {Client} client
      * @param {Message} message
      * @param {String[]} args
      */
-	run: async (client, interaction) => {
-		const embed = new MessageEmbed()
-			.setAuthor(interaction.user.username, interaction.user.displayAvatarURL({ dynamic: true }))
-			.addField('Ping', `${client.ws.ping}ms`)
-			.setColor('RANDOM')
-			.setTimestamp();
-		interaction.followUp({ embeds: [embed] });
-	},
+    run: async (client, interaction) => {
+        const embed = new MessageEmbed()
+            .setTitle('Ping')
+            .addField(`<:432499879844:894247293350477844> ${client.ws.ping}ms`, '<:037989972582:894264223763406908> ')
+            .setColor('#2F3136')
+            .setFooter(interaction.user.username, interaction.user.displayAvatarURL({ dynamic: true }))
+            .setTimestamp();
+        interaction.followUp({ embeds: [embed] });
+    },
 };
