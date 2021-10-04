@@ -6,14 +6,14 @@ module.exports = {
 	userPermissions: ["KICK_MEMBERS"],
 	options: [
 		{
-			name: 'Target',
-			description: 'Target Member to kick.',
+			name: 'target',
+			description: 'target Member to kick:',
 			type: 'USER',
 			required: true,
 		},
 		{
-			name: 'Reason',
-			description: 'Reason for this kick',
+			name: 'reason',
+			description: 'reason for this kick:',
 			type: 'STRING',
 			required: false,
 		},
@@ -27,7 +27,7 @@ module.exports = {
      */
 	run: async (client, interaction) => {
 		// Fetching target from the slash command
-		const target = interaction.options.getMember('Target');
+		const target = interaction.options.getMember('target');
 
 		// What the reason is
 		const reason = interaction.options.getString('Reason') || "No Reason provided.";
