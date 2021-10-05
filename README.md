@@ -4,11 +4,14 @@ A basic discord moderation bot.
 
 *The bot is still in development, so expect errors.*
 
+
+### Test the projfect
 ```js
 npm run test
 ```
-Test the project with nodemon. The app gets restarted **automatically** when a change is detected. <br>
+The app gets restarted **automatically** when a change is detected. <br>
  
+### Start the project
  ```js
  npm run start
  ```
@@ -16,9 +19,10 @@ Test the project with nodemon. The app gets restarted **automatically** when a c
  ```js
  node .
  ```
- **Start** the project. <br>
+### Install all dependencies
 
  ```js
  npm install
  ```
-Install **all dependencies** for the bot.
+
+This is a required step, or else you *will* have errors.```
