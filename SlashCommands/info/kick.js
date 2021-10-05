@@ -35,9 +35,6 @@ module.exports = {
 
 		if (!interaction.member.permissions.has("KICK_MEMBERS")) return interaction.followUp("**You can't use this command!**");
 
-		
-
-
 		// Prevent role hierarchy abuse
 		if (target.roles.highest.postion >= interaction.member.roles.highest.position) {
 
