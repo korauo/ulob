@@ -1,4 +1,5 @@
-const { MessageEmbed } = require("discord.js");
+/* eslint-disable no-unused-vars */
+const { MessageEmbed, Interaction, User } = require("discord.js");
 
 module.exports = {
 	name: 'avatar',

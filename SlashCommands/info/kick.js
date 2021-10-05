@@ -1,9 +1,10 @@
-const { MessageEmbed } = require("discord.js");
+/* eslint-disable no-unused-vars */
+const { Message, MessageEmbed, Interaction, User } = require("discord.js");
 
 module.exports = {
 	name: 'kick',
 	description: 'Kick the mentioned member.',
-	userPermissions: ["KICK_MEMBERS"],
+	userPermissions: ['KICK_MEMBERS'],
 	options: [
 		{
 			name: 'target',
@@ -32,6 +33,11 @@ module.exports = {
 		// What the reason is
 		const reason = interaction.options.getString('Reason') || "No Reason provided.";
 
+		if (!interaction.member.permissions.has("KICK_MEMBERS")) return interaction.followUp("**You can't use this command!**");
+
+		
+
+
 		// Prevent role hierarchy abuse
 		if (target.roles.highest.postion >= interaction.member.roles.highest.position) {
 
@@ -47,8 +53,8 @@ module.exports = {
 
 		// kickMessage to be DMed to the victim who got kicked
 		const kickMessage = new MessageEmbed()
-			.setColor('#FFAAA7')
-			.addField(`You have been kicked from **${interaction.guild.name}**`, `reason: **${reason}**`)
+			.setColor('#FF0000')
+			.addField(`You have been kicked from **${interaction.guild.name}**`, `Reason: **${reason}**`)
 			.setFooter(interaction.user.username, interaction.user.displayAvatarURL({ dynamic: true }))
 			.setTimestamp();
 
@@ -70,10 +76,12 @@ module.exports = {
 
 		// Embed to be sent after the kick has been succesful. (on the guild)
 		const kickReturn = new MessageEmbed()
-			.setColor('#D5ECC2')
-			.setFields(`<:965555212854:894246879360090143> Kicked **${target.user.tag}** successfully! Reason: **${reason}**`)
+			.setColor('#4BB543')
+			.setTitle(`Successfully Kicked  ${target.user.username}`)
+			.addField(`Reason: ${reason}`)
 			.setTimestamp()
 			.setFooter(interaction.user.username, interaction.user.displayAvatarURL({ dynamic: true }));
+
 		interaction.followUp({ embeds: [kickReturn] });
 
 	},

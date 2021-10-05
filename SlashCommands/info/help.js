@@ -38,9 +38,11 @@ module.exports = {
 		if (category === 'bot-information') {
 			const infoBotEmbed = new MessageEmbed()
 				.setColor(0x9EC1CF)
+				.setThumbnail('https://cdn.glitch.com/5ee62511-cbe6-4d98-bdfe-7a864d14ebca%2Fimage-modified.png?v=1633071650894')
 				.setTitle('<:511795868583:894273449231532063> Bot Information')
-				.addField('**Prefix**', 'Bots prefix is: `!`')
-				.addField('**Pages**', '`1. Bot Information`, `2. Moderation`, `3. Information`');
+				.addField('<:746738823901:894246879460741120> **Prefix**', 'Bots prefix is: `/`')
+				.addField('<:892086242097:894246879427199027> Source', 'https://github.com/korauo/ulob')
+				.addField('<:960207583948:894529757658632222> **Pages**', '`1. Bot Information` `2. Moderation` `3. Information`');
 			return interaction.followUp({ embeds: [infoBotEmbed] });
 		}
 		// moderation string
