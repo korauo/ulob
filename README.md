@@ -25,4 +25,4 @@ The app gets restarted **automatically** when a change is detected. <br>
  npm install
  ```
 
-This is a required step, or else you *will* have errors.```
+This is a required step, or else you *will* have errors.
