@@ -2,19 +2,19 @@
 const { Message, MessageEmbed, Interaction, User } = require("discord.js");
 
 module.exports = {
-	name: 'kick',
-	description: 'Kick the mentioned member.',
-	userPermissions: ['KICK_MEMBERS'],
+	name: 'ban',
+	description: 'Ban the mentioned member.',
+	userPermissions: ['BAN_MEMBERS'],
 	options: [
 		{
-			name: 'target',
-			description: 'target Member to kick:',
+			name: 'Target',
+			description: 'Target Member to ban:',
 			type: 'USER',
 			required: true,
 		},
 		{
-			name: 'reason',
-			description: 'reason for this kick:',
+			name: 'Reason',
+			description: 'Reason for this ban:',
 			type: 'STRING',
 			required: false,
 		},
@@ -28,12 +28,12 @@ module.exports = {
      */
 	run: async (client, interaction) => {
 		// Fetching target from the slash command
-		const target = interaction.options.getMember('target');
+		const target = interaction.options.getMember('Target');
 
 		// What the reason is
-		const reason = interaction.options.getString('Reason') || "Reason wasnt provided.";
+		const reason = interaction.options.getString('Reason') || "No Reason provided.";
 
-		if (!interaction.member.permissions.has("KICK_MEMBERS")) {
+		if (!interaction.member.permissions.has("BAN_MEMBERS")) {
 			
 			const noPerms = new MessageEmbed()
 			
@@ -59,33 +59,33 @@ module.exports = {
 		}
 
 		// kickMessage to be DMed to the victim who got kicked
-		const kickMessage = new MessageEmbed()
+		const banDmMessage = new MessageEmbed()
 			.setColor('#F04947')
-			.setTitle(`You have been kicked from ${interaction.guild.name}`)
+			.setTitle(`You have been banned from ${interaction.guild.name}`)
 			.addField('Reason:', `${reason}`)
 			.setFooter(interaction.user.username, interaction.user.displayAvatarURL({ dynamic: true }))
 			.setTimestamp();
 
 		// Try to send the target kickMessage, if not, return an interaction saying it was not able to DM target on the guild channel.
 		try {
-			target.send({ embeds: [kickMessage] });
+			target.send({ embeds: [banDmMessage] });
 		}
 		catch (error) {
-			return interaction.followUp({ content: `I wasn't able to DM ${target}.` });
+			return interaction.followUp({ content: `<:ulobError:894937662518091776> I wasn't able to DM ${target}.` });
 		}
 
 		// Try to kick the target, if not send the interaction.followUp saying that it was unable to kick the user.
 		try {
-			target.kick(reason);
+			target.ban({ reason });
 		}
 		catch (error) {
-			return interaction.followUp({ content: `I was unable to kick the user. Error: ${error}` });
+			return interaction.followUp({ content: `<:ulobError:894937662518091776> I was unable to ban the user. Error: ${error}` });
 		}
 
 		// Embed to be sent after the kick has been succesful. (on the guild)
 		const kickReturn = new MessageEmbed()
 			.setColor('#43B581')
-			.setTitle(`<:ulobSuccess:894937662497128488> *${target.user.tag} was kicked*`)
+			.setTitle(`<:ulobSuccess:894937662497128488> *${target.user.tag} was banned*`)
 			.addField('Reason:', `${reason}`)
 			.setTimestamp()
 
