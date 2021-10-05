@@ -33,6 +33,7 @@ module.exports = {
 		// What the reason is
 		const reason = interaction.options.getString('Reason') || "Reason wasnt provided.";
 
+<<<<<<< HEAD
 		if (!interaction.member.permissions.has("KICK_MEMBERS")) {
 			
 			const noPerms = new MessageEmbed()
@@ -46,6 +47,8 @@ module.exports = {
 		
 
 		
+=======
+>>>>>>> a726a75c951931be65d4d1d975c93461f970ffca
 		// Prevent role hierarchy abuse
 		if (target.roles.highest.postion >= interaction.member.roles.highest.position) {
 
