@@ -21,10 +21,26 @@ module.exports = {
             
             const purgeMax = new MessageEmbed()
             .setTitle('<:ulobError:894937662518091776> The maximum amount of messages you can delete is 500!')
-            .setColor
+            .setColor('#F04947')
+            .setTimestamp()
 
-
-            return interaction.followUp ({ embeds: [] })
+            return interaction.followUp({ embeds: [purgeMax] });
         }
-    }
-}
+
+        const messages = await interaction.channel.messages.fetch({ limit: amount+ 1,
+        });
+
+        const filtered = messages.filter((msg) => Date.now() - msg.createdTimestamp < ms("14 days")
+        );
+
+        await interaction.channel.bulkDelete(filtered) ;{
+            const deleteMessage = new MessageEmbed()
+            .setTitle(`<:ulobSuccess:894937662497128488> Deleted ${filtered.size - 1} messages.`)
+            .setDescription('#43B581')
+            .setTimestamp()
+            .setFields(`requested by **${interaction.user.username}**`)
+
+            interaction.channel.send({ embeds: [deleteMessage] })
+        };
+    },
+};
