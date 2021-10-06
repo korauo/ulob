@@ -34,18 +34,17 @@ module.exports = {
 		const reason = interaction.options.getString('reason') || "No Reason provided.";
 
 		if (!interaction.member.permissions.has("BAN_MEMBERS")) {
-			
-			const noPerms = new MessageEmbed()
-			
-			      .setTitle('<:ulobError:894937662518091776> You cannot use this command!')
-				  .setColor('#F04947')
-				  .setTimestamp('')
-			
-			return interaction.followUp({ embeds: [noPerms] });
-		} 
-		
 
-		
+			const noPerms = new MessageEmbed()
+
+				.setTitle('<:ulobError:894937662518091776> You cannot use this command!')
+				.setColor('#F04947')
+				.setTimestamp('');
+
+			return interaction.followUp({ embeds: [noPerms] });
+		}
+
+
 		// Prevent role hierarchy abuse
 		if (target.roles.highest.postion >= interaction.member.roles.highest.position) {
 
@@ -63,7 +62,7 @@ module.exports = {
 			.setColor('#F04947')
 			.setTitle(`You have been banned from ${interaction.guild.name}`)
 			.addField('Reason:', `${reason}`)
-			.setTimestamp()
+			.setTimestamp();
 
 		// Try to send the target kickMessage, if not, return an interaction saying it was not able to DM target on the guild channel.
 		try {
@@ -73,7 +72,7 @@ module.exports = {
 			return interaction.followUp({ content: `<:ulobError:894937662518091776> I wasn't able to DM ${target}.` });
 		}
 
-		// Try to kick the target, if not send the interaction.followUp saying that it was unable to kick the user.
+		// Try to kick the target. If not, send the interaction.followUp saying that it was unable to kick the user.
 		try {
 			target.ban({ reason });
 		}
@@ -81,12 +80,12 @@ module.exports = {
 			return interaction.followUp({ content: `<:ulobError:894937662518091776> I was unable to ban the user. Error: ${error}` });
 		}
 
-		// Embed to be sent after the kick has been succesful. (on the guild)
+		// Embed to be sent after the kick has been successful. (on the guild)
 		const kickReturn = new MessageEmbed()
 			.setColor('#43B581')
 			.setTitle(`<:ulobSuccess:894937662497128488> *${target.user.tag} was banned*`)
 			.addField('Reason:', `${reason}`)
-			.setTimestamp()
+			.setTimestamp();
 
 		interaction.followUp({ embeds: [kickReturn] });
 
