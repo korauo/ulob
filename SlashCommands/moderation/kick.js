@@ -34,18 +34,17 @@ module.exports = {
 		const reason = interaction.options.getString('reason') || "No Reason provided";
 
 		if (!interaction.member.permissions.has("KICK_MEMBERS")) {
-			
-			const noPerms = new MessageEmbed()
-			
-			      .setTitle('<:ulobError:894937662518091776> You cannot use this command!')
-				  .setColor('#F04947')
-				  .setTimestamp('')
-			
-			return interaction.followUp({ embeds: [noPerms] });
-		} 
-		
 
-		
+			const noPerms = new MessageEmbed()
+
+				.setTitle('<:ulobError:894937662518091776> You cannot use this command!')
+				.setColor('#F04947')
+				.setTimestamp();
+
+			return interaction.followUp({ embeds: [noPerms] });
+		}
+
+
 		// Prevent role hierarchy abuse
 		if (target.roles.highest.postion >= interaction.member.roles.highest.position) {
 
@@ -87,7 +86,7 @@ module.exports = {
 			.setColor('#43B581')
 			.setTitle(`<:ulobSuccess:894937662497128488> *${target.user.tag} was kicked*`)
 			.addField('Reason:', `${reason}`)
-			.setTimestamp()
+			.setTimestamp();
 
 		interaction.followUp({ embeds: [kickReturn] });
 
