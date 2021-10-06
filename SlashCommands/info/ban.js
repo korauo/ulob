@@ -7,13 +7,13 @@ module.exports = {
 	userPermissions: ['BAN_MEMBERS'],
 	options: [
 		{
-			name: 'Target',
+			name: 'target',
 			description: 'Target Member to ban:',
 			type: 'USER',
 			required: true,
 		},
 		{
-			name: 'Reason',
+			name: 'reason',
 			description: 'Reason for this ban:',
 			type: 'STRING',
 			required: false,
@@ -28,10 +28,10 @@ module.exports = {
      */
 	run: async (client, interaction) => {
 		// Fetching target from the slash command
-		const target = interaction.options.getMember('Target');
+		const target = interaction.options.getMember('target');
 
 		// What the reason is
-		const reason = interaction.options.getString('Reason') || "No Reason provided.";
+		const reason = interaction.options.getString('reason') || "No Reason provided.";
 
 		if (!interaction.member.permissions.has("BAN_MEMBERS")) {
 			
@@ -63,8 +63,7 @@ module.exports = {
 			.setColor('#F04947')
 			.setTitle(`You have been banned from ${interaction.guild.name}`)
 			.addField('Reason:', `${reason}`)
-			.setFooter(interaction.user.username, interaction.user.displayAvatarURL({ dynamic: true }))
-			.setTimestamp();
+			.setTimestamp()
 
 		// Try to send the target kickMessage, if not, return an interaction saying it was not able to DM target on the guild channel.
 		try {

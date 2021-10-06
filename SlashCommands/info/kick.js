@@ -31,7 +31,7 @@ module.exports = {
 		const target = interaction.options.getMember('target');
 
 		// What the reason is
-		const reason = interaction.options.getString('Reason') || "Reason wasnt provided.";
+		const reason = interaction.options.getString('reason') || "No Reason provided";
 
 		if (!interaction.member.permissions.has("KICK_MEMBERS")) {
 			
