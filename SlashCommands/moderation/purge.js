@@ -1,46 +1,47 @@
+/* eslint-disable no-unused-vars */
 const ms = require("ms");
 const { Message, MessageEmbed, Interaction } = require("discord.js");
 
 module.exports = {
-    name: 'purge',
-    description: 'Delete a number of messages from a channel.',
-    userPermissions: ["MANAGE_MESSAGES"],
-    options: [
-        {
-            name: 'amount',
-            description: 'Amount of messages which is gonna be deleted',
-            type: 'INTEGER',
-            required: true,
-        },
-    ],
+	name: 'purge',
+	description: 'Delete a number of messages from a channel.',
+	permissions: ["MANAGE_MESSAGES"],
+	options: [
+		{
+			name: 'amount',
+			description: 'Amount of messages which is gonna be deleted',
+			type: 'INTEGER',
+			required: true,
+		},
+	],
 
-    run: async(client, interaction) => {
-        const amount = interaction.options.getInteger('amount');
+	run: async (client, interaction) => {
+		const amount = interaction.options.getInteger('amount');
 
-        if( amount > 500) {
-            
-            const purgeMax = new MessageEmbed()
-            .setTitle('<:ulobError:894937662518091776> The maximum amount of messages you can delete is 500!')
-            .setColor('#F04947')
-            .setTimestamp()
+		if (amount > 500) {
 
-            return interaction.followUp({ embeds: [purgeMax] });
-        }
+			const purgeMax = new MessageEmbed()
+				.setTitle('<:ulobError:894937662518091776> The maximum amount of messages you can delete is 500!')
+				.setColor('#F04947')
+				.setTimestamp();
 
-        const messages = await interaction.channel.messages.fetch({ limit: amount+ 1,
-        });
+			return interaction.followUp({ embeds: [purgeMax] });
+		}
 
-        const filtered = messages.filter((msg) => Date.now() - msg.createdTimestamp < ms("14 days")
-        );
+		const messages = await interaction.channel.messages.fetch({ limit: amount + 1,
+		});
 
-        await interaction.channel.bulkDelete(filtered) ;{
-            const deleteMessage = new MessageEmbed()
-            .setTitle(`<:ulobSuccess:894937662497128488> Deleted ${filtered.size - 1} messages.`)
-            .setDescription('#43B581')
-            .setTimestamp()
-            .setFields(`requested by **${interaction.user.username}**`)
+		const filtered = messages.filter((msg) => Date.now() - msg.createdTimestamp < ms("14 days"),
+		);
 
-            interaction.channel.send({ embeds: [deleteMessage] })
-        };
-    },
+		await interaction.channel.bulkDelete(filtered) ; {
+			const deleteMessage = new MessageEmbed()
+				.setTitle(`<:ulobSuccess:894937662497128488> Deleted ${filtered.size - 1} messages.`)
+				.setDescription('#43B581')
+				.setTimestamp()
+				.setFields(`requested by **${interaction.user.username}**`);
+
+			interaction.channel.send({ embeds: [deleteMessage] });
+		}
+	},
 };

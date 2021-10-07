@@ -4,7 +4,7 @@ const { Message, MessageEmbed, Interaction, User } = require("discord.js");
 module.exports = {
 	name: 'kick',
 	description: 'Kick the mentioned member.',
-	userPermissions: ['KICK_MEMBERS'],
+	permissions: ['KICK_MEMBERS'],
 	options: [
 		{
 			name: 'target',

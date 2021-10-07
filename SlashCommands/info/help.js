@@ -4,6 +4,7 @@ const { Message, Client, MessageEmbed } = require("discord.js");
 module.exports = {
 	name: "help",
 	description: 'Get help',
+	permissions: ['SEND_MESSAGES'],
 	options: [
 		{
 			name: 'category',

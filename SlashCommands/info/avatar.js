@@ -4,6 +4,7 @@ const { MessageEmbed, Interaction, User } = require("discord.js");
 module.exports = {
 	name: 'avatar',
 	description: 'Get the Avatar of the mentioned member',
+	permissions: ['SEND_MESSAGES'],
 	options: [{
 		name: 'target',
 		type: 'USER',

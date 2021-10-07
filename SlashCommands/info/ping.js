@@ -4,6 +4,7 @@ const { Client, MessageEmbed, User } = require("discord.js");
 module.exports = {
 	name: "ping",
 	description: 'Returns ping',
+	permissions: ["SEND_MESSAGES"],
 	/**
      *
      * @param {Client} client
