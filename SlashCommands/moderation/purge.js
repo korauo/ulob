@@ -37,9 +37,8 @@ module.exports = {
 		await interaction.channel.bulkDelete(filtered) ; {
 			const deleteMessage = new MessageEmbed()
 				.setTitle(`<:ulobSuccess:894937662497128488> Deleted ${filtered.size - 1} messages.`)
-				.setDescription('#43B581')
+				.setColor('#43B581')
 				.setTimestamp()
-				.setFields(`requested by **${interaction.user.username}**`);
 
 			interaction.channel.send({ embeds: [deleteMessage] });
 		}
