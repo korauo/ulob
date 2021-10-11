@@ -43,7 +43,7 @@ module.exports = async (client) => {
 	});
 	client.on("ready", async () => {
 		// Register for a single guild
-		const guild = await client.application.commands.set(arrayOfSlashCommands);
+		await client.application.commands.set(arrayOfSlashCommands);
 		// Register for all the guilds the bot is in
 		// const guild = await client.application.commands.set(arrayOfSlashCommands);
 		// If you wish to un-register your slash commands change the line to: await client.application.commands.set([])
