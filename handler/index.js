@@ -2,8 +2,11 @@
 const { glob } = require("glob");
 const { promisify } = require("util");
 const { Client } = require("discord.js");
-
+const mongoose = require("mongoose");
+const { env } = require("process");
+const chalk = require('chalk');
 const globPromise = promisify(glob);
+require('dotenv').config();
 
 /**
  * @param {Client} client
@@ -49,5 +52,19 @@ module.exports = async (client) => {
 		// If you wish to un-register your slash commands change the line to: await client.application.commands.set([])
 	});
 
+// MongoDB
+if (!process.env.database) {
+	console.log(chalk.red('Looks like you have not specified your MongoDB Connection string in your .env file yet. Commands (including slash commands) will not work if you don\'t specify it.'));
+}
 
+try {
+	mongoose.connect(process.env.database, {
+		useUnifiedTopology: true,
+		useNewUrlParser: true,
+	}).then(console.log(chalk.grey('[info] - ') + chalk.green('Successfully connected to') + chalk.cyanBright(' MongoDB.')));
+
+}
+catch (error) {
+	logger.error(chalk.redBright(`MongoDB connection failed.\nError ${error}`));
+}
 };
