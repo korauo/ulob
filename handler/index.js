@@ -38,7 +38,7 @@ module.exports = async (client) => {
 		client.slashCommands.set(file.name, file);
 
 		if (["MESSAGE", "USER"].includes(file.type)) delete file.description;
-		if (file.userPermissions) file.defaultPermission = false;
+		if (file.userPermissions) file.defaultPermission = true;
 		arrayOfSlashCommands.push(file);
 	});
 	client.on("ready", async () => {

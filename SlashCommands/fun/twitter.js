@@ -30,9 +30,9 @@ module.exports = {
 				.set({ Authorization: `Bearer ${process.env.twitter_bearer}` }).query({ screen_name: username });
 
 			const tweetEmbed = new MessageEmbed()
-				.setAuthor(`@${body.screen_name.toLowerCase()}`, body.verified ? "https://emoji.gg/assets/emoji/6817_Discord_Verifed.png" : null)
+				.setAuthor(`@${body.screen_name.toLowerCase()}`, body.verified ? "https://emoji.gg/assets/emoji/4407_New_verified.png" : null)
 				.setDescription(body.description)
-				.addField("Counts:", stripIndents`
+				.addField("Stats:", stripIndents`
         - **Followers:** ${(body.followers_count).toLocaleString()}
         - **Following:** ${(body.friends_count).toLocaleString()}
         - **Tweets:** ${(body.statuses_count).toLocaleString()}
