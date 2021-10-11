@@ -69,7 +69,7 @@ module.exports = {
 			target.send({ embeds: [banDmMessage] });
 		}
 		catch (error) {
-			return interaction.followUp({ content: `<:ulobError:894937662518091776> I wasn't able to DM ${target}.` });
+			console.log(error);
 		}
 
 		// Try to kick the target. If not, send the interaction.followUp saying that it was unable to kick the user.
