@@ -16,6 +16,18 @@ module.exports = {
 	],
 
 	run: async (client, interaction) => {
+
+		if (!interaction.member.permissions.has("MANAGE_MESSAGES")) {
+
+			const noPerms = new MessageEmbed()
+
+				.setTitle('<:ulobError:894937662518091776> You cannot use this command!')
+				.setColor('#F04947')
+				.setTimestamp();
+
+			return interaction.followUp({ embeds: [noPerms] });
+		}
+
 		const amount = interaction.options.getInteger('amount');
 
 		if (amount > 500) {
