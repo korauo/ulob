@@ -1,4 +1,3 @@
-
 const { MessageEmbed } = require("discord.js");
 const request = require("node-superfetch");
 const { stripIndents } = require('common-tags');
