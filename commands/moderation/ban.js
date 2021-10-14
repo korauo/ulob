@@ -21,11 +21,11 @@ module.exports = {
 		try {
 			await mentionMember.ban();
 			const guildKick = new MessageEmbed()
-				.setAuthor(`Kick in ${message.guild}`)
-				.setDescription(`${message.author} successfully kicked ${mentionMember} for ${reason}.`)
+				.setAuthor(`Ban in ${message.guild}`)
+				.setDescription(`${message.author} successfully banned ${mentionMember} for ${reason}.`)
 				.setTimestamp()
 				.setColor('DARK_RED')
-				.setFooter(`Requested by ${message.author.tag}`,
+				.setFooter(`Requested by ${message.author.username}`,
 					message.author.displayAvatarURL({
 						dynamic: true,
 					}),
