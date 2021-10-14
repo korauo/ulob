@@ -13,7 +13,7 @@ module.exports = {
      */
 	run: async (client, message, args) => {
 		if (!args[0]) {
-			return message.reply('Execute the command again, but specify a number with it.\nAvailable options: `1`,`2`,`3`');
+			return message.reply('**Execute the command again, but specify a number with it.**\n*Available options: `u!help 1`,`u!help 2`,`u!help 3`.*');
 		}
 		if (args[0] == '1') {
 
@@ -46,7 +46,7 @@ module.exports = {
 			const embed3 = new MessageEmbed()
 				.setColor(0xFDFD97)
 				.setTitle('<:382067908570:894270287720357948> Information')
-				.addField('`u!ping`', 'Ask it a question and it will respond.....')
+				.addField('`u!ping`', 'Shows the bot\'s ping')
 				.addField('`u!userinfo`', 'Tells you the info of an user')
 				.addField('`u!serverinfo`', 'Tells you the info of a server');
 			return message.channel.send({ embeds: [embed3] });
