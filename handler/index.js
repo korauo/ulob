@@ -1,9 +1,6 @@
-/* eslint-disable no-unused-vars */
 const { glob } = require("glob");
 const { promisify } = require("util");
-const { Client } = require("discord.js");
 const mongoose = require("mongoose");
-const { env } = require("process");
 const chalk = require('chalk');
 const globPromise = promisify(glob);
 require('dotenv').config();
