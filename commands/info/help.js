@@ -12,6 +12,9 @@ module.exports = {
      * @param {String[]} args
      */
 	run: async (client, message, args) => {
+		if (!args[0]) {
+			return message.reply('Execute the command again, but specify a number with it.\nAvailable options: `1`,`2`,`3`');
+		}
 		if (args[0] == '1') {
 
 			const embed1 = new MessageEmbed()
