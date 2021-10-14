@@ -1,4 +1,6 @@
 # ulob
+[![CodeFactor](https://www.codefactor.io/repository/github/korauo/ulob/badge)](https://www.codefactor.io/repository/github/korauo/ulob)
+
 
 A basic discord moderation bot.
 
