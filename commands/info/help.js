@@ -11,7 +11,7 @@ module.exports = {
      */
 	run: async (client, message, args) => {
 		if (!args[0]) {
-			return message.reply('Execute the command again, but specify a number with it.\nAvailable options: `u!help 1`,`u!help 2`,`u!help 3`');
+			return message.reply('**Execute the command again, but specify a number with it.**\n*Available options: `u!help 1`,`u!help 2`,`u!help 3`*');
 		}
 		if (args[0] == '1') {
 
