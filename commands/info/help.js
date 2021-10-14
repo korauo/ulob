@@ -44,9 +44,9 @@ module.exports = {
 			const embed3 = new MessageEmbed()
 				.setColor(0xFDFD97)
 				.setTitle('<:382067908570:894270287720357948> Information')
-				.addField('`u!ping`', 'Ask it a question and it will respond.....')
-				.addField('`u!userinfo`', 'Tells you the info of an user')
-				.addField('`u!serverinfo`', 'Tells you the info of a server');
+				.addField('`u!ping`', 'Returns websocket ping.')
+				.addField('`u!userinfo`', 'Tells you the info of an user.')
+				.addField('`u!serverinfo`', 'Tells you the info of a server.');
 			return message.channel.send({ embeds: [embed3] });
 		}
 
