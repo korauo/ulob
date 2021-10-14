@@ -15,7 +15,7 @@ const logger = winston.createLogger({
 
 
 client.once('ready', () => {
-	client.user.setActivity(botStatus, { type: 'LISTENING' });
+	client.user.setActivity(botStatus, { type: 'STREAMING', url:"https://twitch.tv/korauo" });
 	logger.info(chalk.blueBright(`${client.user.tag} is up and ready to go!`));
 	logger.info(chalk.blueBright(`You should be able to use slash commands and normal commands properly.`));
 	logger.info(chalk.yellow('Restart the terminal and/or wait to register the slash commands.'));

@@ -28,15 +28,11 @@ module.exports = {
 		try {
 			await mentionMember.kick(reason);
 			const guildKick = new MessageEmbed()
-				.setAuthor(`Kick in ${message.guild}`)
-				.setDescription(`${message.author} successfully kicked ${mentionMember} for ${reason}.`)
-				.setTimestamp()
-				.setColor('DARK_RED')
-				.setFooter(`Requested by ${message.author.tag}`,
-					message.author.displayAvatarURL({
-						dynamic: true,
-					}),
-				);
+			.setColor('#43B581')
+			.setTitle(`<:ulobSuccess:894937662497128488> *${mentionMember.user.tag} was kicked*`)
+			.addField('Reason:', `${reason}`)
+			.setTimestamp();
+
 			message.channel.send({ embeds: [guildKick] });
 		}
 		catch (err) {
