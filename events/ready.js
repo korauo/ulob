@@ -1,24 +1,14 @@
 const client = require('../index');
 const chalk = require('chalk');
-const winston = require('winston');
+
 
 const botStatus = require('../config.json').status;
 
-// Winston logging
-const logger = winston.createLogger({
-	transports: [
-		new winston.transports.Console(),
-		new winston.transports.File({ filename: 'readyLog.log' }),
-	],
-	format: winston.format.printf(log => `[${log.level.toLowerCase()}] - ${log.message}`),
-});
-
-
 client.once('ready', () => {
 	client.user.setActivity(botStatus, { type: 'STREAMING', url:"https://twitch.tv/korauo" });
-	logger.info(chalk.blueBright(`${client.user.tag} is up and ready to go!`));
-	logger.info(chalk.blueBright(`You should be able to use slash commands and normal commands properly.`));
-	logger.info(chalk.yellow('Restart the terminal and/or wait to register the slash commands.'));
+	console.log(chalk.blueBright(`${client.user.tag} is up and ready to go!`));
+	console.log(chalk.blueBright(`You should be able to use slash commands and normal commands properly.`));
+	console.log(chalk.yellow('Restart the terminal and/or wait to register the slash commands.'));
 });
 
 client.on('error', () => {
