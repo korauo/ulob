@@ -7,7 +7,7 @@ A basic discord moderation bot.
 *The bot is still in development, so expect errors.*
 
 
-### Test the projfect
+### Test the project
 ```js
 npm run test
 ```
