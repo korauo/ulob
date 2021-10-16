@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://korauo.github.io/ulob/blog</id>
+    <title>ulob Blog</title>
+    <updated>2021-10-16T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://korauo.github.io/ulob/blog"/>
+    <subtitle>ulob Blog</subtitle>
+    <icon>https://korauo.github.io/ulob/img/ulob-circle.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Welcome]]></title>
+        <id>welcome</id>
+        <link href="https://korauo.github.io/ulob/blog/welcome"/>
+        <updated>2021-10-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Welcome to ulob blogs. Changelogs will also be mentioned here.]]></summary>
+        <author>
+            <name>korauo</name>
+            <uri>https://github.com/korauo</uri>
+        </author>
+    </entry>
+</feed>

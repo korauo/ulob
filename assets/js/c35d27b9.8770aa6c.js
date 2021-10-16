@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[222],{4894:function(l){l.exports=JSON.parse('{"allTagsPath":"/ulob/blog/tags","slug":"/ulob/blog/tags/ulob","name":"ulob","count":1,"permalink":"/ulob/blog/tags/ulob"}')}}]);

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>ulob Blog</title>
+        <link>https://korauo.github.io/ulob/blog</link>
+        <description>ulob Blog</description>
+        <lastBuildDate>Sat, 16 Oct 2021 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[Welcome]]></title>
+            <link>https://korauo.github.io/ulob/blog/welcome</link>
+            <guid>welcome</guid>
+            <pubDate>Sat, 16 Oct 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Welcome to ulob blogs. Changelogs will also be mentioned here.]]></description>
+        </item>
+    </channel>
+</rss>
