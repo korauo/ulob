@@ -46,7 +46,7 @@ module.exports = {
 		const category = interaction.options.getString('category');
 		// r/memes string
 		if (category === 'r/memes') {
-			const infoBotEmbed = new MessageEmbed()
+			const infoBotEmbed = new MessageEmbed();
             got('https://www.reddit.com/r/memes/random/.json').then(res => {
                 const content = JSON.parse(res.body);
                 const embed = new MessageEmbed()
