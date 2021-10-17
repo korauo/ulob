@@ -53,7 +53,7 @@ module.exports = {
                     .setTitle(content[0].data.children[0].data.title)
                     .setImage(content[0].data.children[0].data.url)
                     .setColor("#2F3136")
-                    .setFooter(`️⬆️ ${content[0].data.children[0].data.ups} ⬇️ ${content[0].data.children[0].data.downs} | Comments: ${content[0].data.children[0].data.num_comments}`);
+                    .setFooter(`️👍️ ${content[0].data.children[0].data.ups} | 💬: ${content[0].data.children[0].data.num_comments}`);
                 interaction.followUp({ embeds: [embed] });
             });
 		}
@@ -65,7 +65,7 @@ module.exports = {
                     .setTitle(content[0].data.children[0].data.title)
                     .setImage(content[0].data.children[0].data.url)
                     .setColor("#2F3136")
-                    .setFooter(`️⬆️ ${content[0].data.children[0].data.ups} ⬇️ ${content[0].data.children[0].data.downs} | Comments: ${content[0].data.children[0].data.num_comments}`);
+                    .setFooter(`️👍️ ${content[0].data.children[0].data.ups} | 💬: ${content[0].data.children[0].data.num_comments}`);
                 interaction.followUp({ embeds: [embed2] });
             });
 		}
@@ -77,7 +77,7 @@ module.exports = {
                     .setTitle(content[0].data.children[0].data.title)
                     .setImage(content[0].data.children[0].data.url)
                     .setColor("#2F3136")
-                    .setFooter(`️⬆️ ${content[0].data.children[0].data.ups} ⬇️ ${content[0].data.children[0].data.downs} | Comments: ${content[0].data.children[0].data.num_comments}`);
+                    .setFooter(`️👍️ ${content[0].data.children[0].data.ups} | 💬: ${content[0].data.children[0].data.num_comments}`);
                 interaction.followUp({ embeds: [embed3] });
             });
 		}
@@ -89,7 +89,7 @@ module.exports = {
                     .setTitle(content[0].data.children[0].data.title)
                     .setImage(content[0].data.children[0].data.url)
                     .setColor("#2F3136")
-                    .setFooter(`️⬆️ ${content[0].data.children[0].data.ups} ⬇️ ${content[0].data.children[0].data.downs} | Comments: ${content[0].data.children[0].data.num_comments}`);
+                    .setFooter(`️👍️ ${content[0].data.children[0].data.ups} | 💬: ${content[0].data.children[0].data.num_comments}`);
                 interaction.followUp({ embeds: [embed4] });
             });
 		}
@@ -101,7 +101,7 @@ module.exports = {
                     .setTitle(content[0].data.children[0].data.title)
                     .setImage(content[0].data.children[0].data.url)
                     .setColor("#2F3136")
-                    .setFooter(`️⬆️ ${content[0].data.children[0].data.ups} ⬇️ ${content[0].data.children[0].data.downs} | Comments: ${content[0].data.children[0].data.num_comments}`);
+                    .setFooter(`️👍️ ${content[0].data.children[0].data.ups} | 💬: ${content[0].data.children[0].data.num_comments}`);
                 interaction.followUp({ embeds: [embed5] });
             });
 		}
