@@ -12,7 +12,7 @@ module.exports = {
 		let reason = args.slice(1).join(" ");
 		if (!reason) reason = "no reason";
 
-		if (!args[0]) return message.channel.send("You need to specify a user to kick");
+		if (!args[0]) return message.channel.send("You need to specify a user to kick.");
 
 		if (!mentionMember) return message.channel.send("This user is not a valid user / is no-longer in the server!");
 

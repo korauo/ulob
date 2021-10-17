@@ -58,10 +58,10 @@ module.exports = async (client) => {
 		mongoose.connect(process.env.database, {
 			useUnifiedTopology: true,
 			useNewUrlParser: true,
-		}).then(console.log(chalk.grey('[info] - ') + chalk.green('Successfully connected to') + chalk.cyanBright(' MongoDB.')));
+		}).then(console.log(chalk.greenBright('[info] - ') + chalk.green('Successfully connected to') + chalk.cyanBright(' MongoDB.')));
 
 	}
 	catch (error) {
-		console.log(chalk.redBright(`MongoDB connection failed.\nError ${error}`));
+		console.log(chalk.red('[error] - ') + chalk.redBright(`MongoDB connection failed.\nError ${error}`));
 	}
 };

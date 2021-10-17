@@ -22,7 +22,7 @@ module.exports = {
 
             await message.channel.bulkDelete(parseInt(delamount) + 1, true);
 
-            await message.channel.send('Purged!').then(m => {
+            await message.channel.send(`Purged ${filtered.size - 1} messages.`).then(m => {
                 setTimeout(() => {
                     m.delete()
                 }, 5000) 

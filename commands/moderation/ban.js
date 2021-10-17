@@ -21,15 +21,11 @@ module.exports = {
 		try {
 			await mentionMember.ban();
 			const guildKick = new MessageEmbed()
-				.setAuthor(`Ban in ${message.guild}`)
-				.setDescription(`${message.author} successfully banned ${mentionMember} for ${reason}.`)
+			    .setTitle('<:ulobSuccess:894937662497128488> *${mentionMember.user.tag} was kicked*')
+				.addField('Reason:', `${reason}`)
 				.setTimestamp()
-				.setColor('DARK_RED')
-				.setFooter(`Requested by ${message.author.username}`,
-					message.author.displayAvatarURL({
-						dynamic: true,
-					}),
-				);
+				.setColor('#43B581')
+				
 			message.channel.send({ embeds: [guildKick] });
 		}
 		catch (err) {
