@@ -24,8 +24,8 @@ module.exports = {
 			    .setTitle('<:ulobSuccess:894937662497128488> *${mentionMember.user.tag} was kicked*')
 				.addField('Reason:', `${reason}`)
 				.setTimestamp()
-				.setColor('#43B581')
-				
+				.setColor('#43B581');
+
 			message.channel.send({ embeds: [guildKick] });
 		}
 		catch (err) {

@@ -50,7 +50,7 @@ module.exports = {
 			const deleteMessage = new MessageEmbed()
 				.setTitle(`<:ulobSuccess:894937662497128488> Deleted ${filtered.size - 1} messages.`)
 				.setColor('#43B581')
-				.setTimestamp()
+				.setTimestamp();
 
 			interaction.channel.send({ embeds: [deleteMessage] });
 		}
