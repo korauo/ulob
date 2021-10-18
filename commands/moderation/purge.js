@@ -22,8 +22,8 @@ module.exports = {
             return message.channel.send({ embeds: [noPerms] });
         }
         try {
-            let delamount = args[0];
-            if (isNaN(delamount) || parseInt(delamount <= 0)) return message.reply('Error:')
+            const delamount = args[0];
+            if (isNaN(delamount) || parseInt(delamount <= 0)) return message.reply('Error:');
 
             if (parseInt(delamount) > 500) {
 
@@ -50,4 +50,4 @@ module.exports = {
             console.log(e)
         } 
     }
-}
+};
