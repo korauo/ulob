@@ -1,34 +1,53 @@
-const {
-    Client,
-    Message,
-    MessageEmbed
-} = require('discord.js');
+/* eslint-disable no-empty */
+const { Client, Message, MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: 'purge',
     aliases: ['clear'],
-    UserPerms: ['MANAGE_MESSAGES'],
     /** 
      * @param {Client} client 
      * @param {Message} message 
      * @param {String[]} args 
      */
     run: async (client, message, args, Discord) => {
+
+        if (!message.member.permissions.has("MANAGE_MESSAGES")) {
+
+            const noPerms = new MessageEmbed()
+
+                .setTitle('<:ulobError:894937662518091776> You cannot use this command!')
+                .setColor('#F04947')
+                .setTimestamp();
+
+            return message.channel.send({ embeds: [noPerms] });
+        }
         try {
             let delamount = args[0];
             if (isNaN(delamount) || parseInt(delamount <= 0)) return message.reply('Error:')
 
-            if (parseInt(delamount) > 500) return message.reply('You can\'t delete 500 messages at a time!')
+            if (parseInt(delamount) > 500) {
+
+                const purgeMax = new MessageEmbed()
+                .setTitle('<:ulobError:894937662518091776> The maximum amount of messages you can delete is 500!')
+                .setColor('#F04947')
+                .setTimestamp();
+
+                return message.reply({ embeds: [purgeMax] });
+            } 
 
             await message.channel.bulkDelete(parseInt(delamount) + 1, true);
 
-            await message.channel.send(`Purged ${filtered.size - 1} messages.`).then(m => {
-                setTimeout(() => {
-                    m.delete()
-                }, 5000) 
-            })
+            message.channel.bulkDelete(parseInt(delamount) + 1, true) ; {
+                const deleteMessage = new MessageEmbed()
+                    .setTitle(`<:ulobSuccess:894937662497128488> Deleted ${delamount} messages.`)
+                    .setColor('#43B581')
+                    .setTimestamp()
+    
+                message.channel.send({ embeds: [deleteMessage] });
+            }
+
         } catch (e) {
             console.log(e)
-        }
+        } 
     }
 }

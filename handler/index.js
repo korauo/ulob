@@ -20,6 +20,10 @@ module.exports = async (client) => {
 			const properties = { directory, ...file };
 			client.commands.set(file.name, properties);
 		}
+
+		if (file.userPermissions) file.defaultPermission = true;
+		commandFiles.push(file);
+
 	});
 
 	// Events

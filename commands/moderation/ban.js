@@ -1,3 +1,4 @@
+/* eslint-disable no-empty */
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {

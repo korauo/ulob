@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const { Client, MessageEmbed, User } = require("discord.js");
+const { Client, MessageEmbed } = require("discord.js");
 
 module.exports = {
 	name: "ping",

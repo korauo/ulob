@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 const ms = require("ms");
-const { Message, MessageEmbed, Interaction } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
 	name: 'purge',
