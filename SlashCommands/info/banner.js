@@ -2,7 +2,7 @@ const {
     Client,
     MessageEmbed
 } = require('discord.js');
-const axios = require('axios') // npm i axios
+const axios = require('axios')
 
 module.exports = {
     name: 'banner',
