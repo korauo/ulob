@@ -11,11 +11,38 @@ module.exports = {
      */
     run: async (client, message, args, Discord) => {
 
+        if (!message.member.permissions.has("MANAGE_MESSAGES")) {
+
+            const noPerms = new MessageEmbed()
+
+                .setTitle('<:ulobError:894937662518091776> You cannot use this command!')
+                .setColor('#F04947')
+                .setTimestamp();
+
+            return message.channel.send({ embeds: [noPerms] });
+        }
+
         const user = message.mentions.members.first() || message.guild.members.cache.get(args[0])
 
-        if (!user) return message.reply('Mention a valid user')
+        if (!user) {
+
+            const embed1 = new MessageEmbed()
+            .setTitle('<:ulobError:894937662518091776> Mention a valid member.')
+            .setColor('#F04947')
+            .setTimestamp();
+
+            return message.reply({ embeds: [embed1] })
+        } 
+
         const reason = args.slice(1).join(" ")
-        if (!reason) return message.reply('Tell me a reason')
+        if (!reason) {
+            const embed2 = new MessageEmbed()
+            .setTitle('<:ulobError:894937662518091776> Please provide a reason.')
+            .setColor('#F04947')
+            .setTimestamp();
+
+            return message.reply({ embeds: [embed2] })
+        } 
 
         warndb.findOne({
             guild: message.guild.id,

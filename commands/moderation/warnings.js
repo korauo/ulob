@@ -12,6 +12,17 @@ module.exports = {
      */
     run: async (client, message, args, Discord) => {
 
+        if (!message.member.permissions.has("MANAGE_MESSAGES")) {
+
+            const noPerms = new MessageEmbed()
+
+                .setTitle('<:ulobError:894937662518091776> You cannot use this command!')
+                .setColor('#F04947')
+                .setTimestamp();
+
+            return message.channel.send({ embeds: [noPerms] });
+        }
+
         const user = message.mentions.members.first() || message.author.id;
 
         warndb.findOne({
@@ -25,11 +36,18 @@ module.exports = {
                 )
                 const embed = new MessageEmbed()
                     .setDescription(e.join(' '))
+                    .setColor('#43B581')
                 message.channel.send({
                     embeds: [embed]
                 })
             } else {
-                message.channel.send('**This user does not have any warnings**')
+
+                const noWarns = new MessageEmbed()
+                .setTitle('<:ulobError:894937662518091776> This user does not have any warnings.')
+                .setColor('#F04947')
+                .setTimestamp();
+
+                message.channel.send({ embeds: [noWarns] })
             }
         })
 

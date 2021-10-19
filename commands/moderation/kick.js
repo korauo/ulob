@@ -6,17 +6,47 @@ module.exports = {
 	description: "kick command",
 
 	async run(client, message, args) {
-		if (!message.member.permissions.has("KICK_MEMBERS")) return message.channel.send("You can't use this command!");
+        if (!message.member.permissions.has("KICK_MEMBERS")) {
+
+            const noPerms = new MessageEmbed()
+
+                .setTitle('<:ulobError:894937662518091776> You cannot use this command!')
+                .setColor('#F04947')
+                .setTimestamp();
+
+            return message.channel.send({ embeds: [noPerms] });
+        }
 
 		const mentionMember = message.mentions.members.first();
 		let reason = args.slice(1).join(" ");
-		if (!reason) reason = "no reason";
+		if (!reason) reason = "Reason wasn't provided";
 
-		if (!args[0]) return message.channel.send("You need to specify a user to kick.");
+		if (!args[0]) {
+			const specifyUser = new MessageEmbed()
+			.setTitle('<:ulobError:894937662518091776> You need to specify a user to kick.')
+			.setColor('#F04947')
+			.setTimestamp();
 
-		if (!mentionMember) return message.channel.send("This user is not a valid user / is no-longer in the server!");
+			return message.channel.send({ embeds: [specifyUser] })
+		} 
 
-		if (!mentionMember.kickable) return message.channel.send("I was unable to kick this user!");
+		if (!mentionMember) {
+			const invalidUser = new MessageEmbed()
+			.setTitle('<:ulobError:894937662518091776> This user is not a valid user / is no-longer in the server!')
+			.setColor('#F04947')
+			.setTimestamp();
+
+			return message.channel.send({ embeds: [invalidUser] })
+		} 
+
+		if (!mentionMember.kickable) {
+			const roleHierarchy = new MessageEmbed()
+			.setTitle('<:ulobError:894937662518091776> You can\'t take action on this user as their role is higher than yours.')
+			.setColor('#F04947')
+			.setTimestamp();
+
+			return message.channel.send({ embeds: [roleHierarchy] })
+		} 
 
 
 		try {

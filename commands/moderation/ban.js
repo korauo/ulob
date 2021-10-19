@@ -6,23 +6,53 @@ module.exports = {
 	description: "Ban command",
 
 	async run(client, message, args) {
-		if (!message.member.permissions.has("BAN_MEMBERS")) return message.channel.send("You can't use this command!");
+        if (!message.member.permissions.has("BAN_MEMBERS")) {
+
+            const noPerms = new MessageEmbed()
+
+                .setTitle('<:ulobError:894937662518091776> You cannot use this command!')
+                .setColor('#F04947')
+                .setTimestamp();
+
+            return message.channel.send({ embeds: [noPerms] });
+        }
 
 		const mentionMember = message.mentions.members.first();
 		let reason = args.slice(1).join(" ");
-		if (!reason) reason = "no reason";
+		if (!reason) reason = "Reason wasn't provided.";
 
-		if (!args[0]) return message.channel.send("You need to specify a user to ban.");
+		if (!args[0]) {
+			const specifyUser = new MessageEmbed()
+			.setTitle('<:ulobError:894937662518091776> You need to specify a user to ban.')
+			.setColor('#F04947')
+			.setTimestamp();
 
-		if (!mentionMember) return message.channel.send("This user is not a valid user / is no-longer in the server!");
+			return message.channel.send({ embeds: [specifyUser] })
+		} 
 
-		if (!mentionMember.bannable) return message.channel.send("I was unable to ban this user due to role hierarchy.");
+		if (!mentionMember) {
+			const invalidUser = new MessageEmbed()
+			.setTitle('<:ulobError:894937662518091776> This user is not a valid user / is no-longer in the server!')
+			.setColor('#F04947')
+			.setTimestamp();
+
+			return message.channel.send({ embeds: [invalidUser] })
+		}
+
+		if (!mentionMember.bannable) {
+			const roleHierarchy = new MessageEmbed()
+			.setTitle('<:ulobError:894937662518091776> You can\'t take action on this user as their role is higher than yours.')
+			.setColor('#F04947')
+			.setTimestamp();
+
+			return message.channel.send({ embeds: [roleHierarchy] })
+		} 
 
 
 		try {
 			await mentionMember.ban();
 			const guildKick = new MessageEmbed()
-			    .setTitle('<:ulobSuccess:894937662497128488> *${mentionMember.user.tag} was kicked*')
+			    .setTitle(`<:ulobSuccess:894937662497128488> *${mentionMember.user.tag} was banned.*`)
 				.addField('Reason:', `${reason}`)
 				.setTimestamp()
 				.setColor('#43B581');
