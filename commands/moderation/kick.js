@@ -1,5 +1,6 @@
 /* eslint-disable no-empty */
 const { MessageEmbed } = require('discord.js');
+const { chalk } = require('chalk');
 
 module.exports = {
 	name: "kick",
@@ -65,8 +66,9 @@ module.exports = {
 
 			message.channel.send({ embeds: [guildKick] });
 		}
-		catch (err) {
-			return message.channel.send(`An error occured: ${err}`);
+		catch (error) {
+			console.log(chalk.red(`An error occured from kick.js / u! commands. Error: ${error}`));
+			message.channel.send(`An unknown error occured: ${error}`);
 		}
 	},
 };

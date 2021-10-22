@@ -1,5 +1,6 @@
 /* eslint-disable no-empty */
 const { Client, Message, MessageEmbed } = require('discord.js');
+const { chalk } = require('chalk');
 
 module.exports = {
     name: 'purge',
@@ -46,8 +47,9 @@ module.exports = {
                 message.channel.send({ embeds: [deleteMessage] });
             }
 
-        } catch (e) {
-            console.log(e)
-        } 
+        } 	catch (error) {
+			console.log(chalk.red(`An error occured from purge.js / u! commands. Error: ${error}`));
+			message.channel.send(`An unknown error occured: ${error}`);
+		}
     }
 };

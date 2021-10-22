@@ -1,5 +1,6 @@
 /* eslint-disable no-empty */
 const { MessageEmbed } = require('discord.js');
+const { chalk } = require('chalk');
 
 module.exports = {
 	name: "ban",
@@ -59,8 +60,9 @@ module.exports = {
 
 			message.channel.send({ embeds: [guildKick] });
 		}
-		catch (err) {
-			message.channel.send(`An error had occured: ${err}`);
+		catch (error) {
+			console.log(chalk.red(`An error occured from ban.js / u! commands. Error: ${error}`));
+			message.channel.send(`An unknown error occured: ${error}`);
 		}
 	},
 };
