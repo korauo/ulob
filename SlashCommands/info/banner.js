@@ -1,7 +1,4 @@
-const {
-    Client,
-    MessageEmbed
-} = require('discord.js');
+const { Client, MessageEmbed } = require('discord.js');
 const axios = require('axios')
 
 module.exports = {
@@ -41,7 +38,7 @@ module.exports = {
                 const embed = new MessageEmbed()
                     .setTitle(`${user.tag}'s banner`)
                     .setImage(url)
-                    .setColor(accent_color || "#2F3136"); // you can put any color
+                    .setColor(accent_color || "#2F3136");
 
                 interaction.followUp({
                     embeds: [embed]

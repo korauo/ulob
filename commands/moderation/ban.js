@@ -1,6 +1,6 @@
 /* eslint-disable no-empty */
 const { MessageEmbed } = require('discord.js');
-const { chalk } = require('chalk');
+const chalk = require('chalk');
 
 module.exports = {
 	name: "ban",

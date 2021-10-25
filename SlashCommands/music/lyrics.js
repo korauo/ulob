@@ -30,6 +30,7 @@ const createEmbeds = async (title) => {
             title: isFirst ? `${data.title} - ${data.author}` : null,
             thumbnail: isFirst ? { url: data.thumbnail.genius } : null,
             description: value,
+            color: '#2F3136'
         });
     });
 };

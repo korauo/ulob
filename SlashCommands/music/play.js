@@ -1,4 +1,5 @@
 const { QueryType } = require("discord-player");
+const { MessageEmbed } = require("discord.js");
 const player = require("../../client/player");
 
 module.exports = {
@@ -20,7 +21,7 @@ module.exports = {
                 content: "Please join a voice channel first!",
             });
 
-        const searchResult = await player.search(songTitle, {
+        const searchResult = await player.search(songTitle + "lyrics", {
             requestedBy: interaction.user,
             searchEngine: QueryType.AUTO,
         });
@@ -32,7 +33,13 @@ module.exports = {
         if (!queue.connection)
             await queue.connect(interaction.member.voice.channel);
 
-        interaction.followUp({ content: `Playing ${songTitle}` });
+            const embed = new MessageEmbed()
+              .setTitle(`Playing ${songTitle}`)
+              .setColor("#41A2D5")
+              .setTimestamp()
+              .setFooter(interaction.user.username, interaction.user.displayAvatarURL({ dynamic: true }))
+
+        interaction.followUp({ embeds: [embed] });
 
         searchResult.playlist
             ? queue.addTracks(searchResult.tracks)

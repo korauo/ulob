@@ -1,6 +1,6 @@
 /* eslint-disable no-empty */
 const { Client, Message, MessageEmbed } = require('discord.js');
-const { chalk } = require('chalk');
+const chalk = require('chalk');
 
 module.exports = {
     name: 'purge',
@@ -24,7 +24,7 @@ module.exports = {
         }
         try {
             const delamount = args[0];
-            if (isNaN(delamount) || parseInt(delamount <= 0)) return message.reply('Error:');
+            if (isNaN(delamount) || parseInt(delamount <= 0)) return message.reply(`**You need to specify a number between 1 and 500!**`);
 
             if (parseInt(delamount) > 500) {
 
