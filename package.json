@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node .",
-    "test": "nodemon ."
+    "test": "nodemon .",
+    "lint": "eslint ."
   },
   "engines": {
     "node": "16.7.x"

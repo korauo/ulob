@@ -14,10 +14,7 @@ npm run test
 The app gets restarted **automatically** when a change is detected. <br>
  
 ### Start the project
- ```js
- npm run start
- ```
- or
+
  ```js
  node .
  ```
