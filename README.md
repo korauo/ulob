@@ -4,6 +4,9 @@
 
 A basic discord moderation bot.
 
+Invite ulob at [dsc.gg/ulob](https://dsc.gg/ulob)
+
+
 *The bot is still in development, so expect errors.*
 
 
