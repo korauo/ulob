@@ -25,3 +25,6 @@ The app gets restarted **automatically** when a change is detected. <br>
  ```
 
 This is a required step, or else you *will* have errors.
+
+
+> GitHub [@korauo](https://github.com/korauo)
