@@ -4,6 +4,9 @@
 
 A basic discord moderation bot.
 
+Invite me at [dsc.gg/ulob](https://dsc.gg/ulob)
+
+
 *The bot is still in development, so expect errors.*
 
 
@@ -25,6 +28,3 @@ The app gets restarted **automatically** when a change is detected. <br>
  ```
 
 This is a required step, or else you *will* have errors.
-
-
-> GitHub [@korauo](https://github.com/korauo)
