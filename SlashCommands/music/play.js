@@ -35,6 +35,7 @@ module.exports = {
 
             const embed = new MessageEmbed()
               .setTitle(`Playing ${songTitle}`)
+              .setDescription(`in <#${interaction.member.voice.channel.id}>`)
               .setColor("#41A2D5")
               .setTimestamp()
               .setFooter(interaction.user.username, interaction.user.displayAvatarURL({ dynamic: true }))
