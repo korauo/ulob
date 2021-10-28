@@ -11,25 +11,20 @@ module.exports = {
      */
 	run: async (client, message, args) => {
 		if (!args[0]) {
-			return message.reply('**Execute the command again, but specify a number with it.**\n*Available options: `u!help 1`,`u!help 2`,`u!help 3`.*');
-		}
-		if (args[0] == '1') {
-
 			const embed1 = new MessageEmbed()
-				.setColor(0x9EC1CF)
-				.setThumbnail('https://cdn.glitch.com/5ee62511-cbe6-4d98-bdfe-7a864d14ebca%2Fimage-modified.png?v=1633071650894')
-				.setTitle('<:511795868583:894273449231532063> Bot Information')
-				.addField('<:746738823901:894246879460741120> **Prefix**', 'Bots prefix is: `u!`')
-				.addField('<:892086242097:894246879427199027> Source', 'https://github.com/korauo/ulob')
-				.addField('<:960207583948:894529757658632222> **Pages**', '`1. Bot Information` `2. Moderation` `3. Information`');
-			message.channel.send({ embeds: [embed1] });
+			    .setTitle('ulob')
+				.setColor('#41A2D5')
+				.addField('Moderation', '\`\`\`u!help moderation\`\`\`', true)
+				.addField('Information', '\`\`\`u!help information\`\`\`', true)
+				.addField('Fun', '\`\`\`u!help fun\`\`\`', true)
+
+			return message.channel.send({ embeds: [embed1] });
 		}
-		if (args[0] === '2') {
+		if (args[0] === 'mod' || 'moderation') {
 			const embed2 = new MessageEmbed()
 				.setColor(0xFF6663)
 				.setTitle('<:534908853201:894270297723797554> Moderation')
 				.addField('`u!ban`', 'Ban a member.')
-				.addField('`u!unban`', 'Unban a member.')
 				.addField('`u!kick`', 'Kick a member.')
 				.addField('`u!warn`', 'Warn a member.')
 				.addField('`u!mute`', 'Mute a member so they cannot type or speak.')
@@ -39,7 +34,7 @@ module.exports = {
 			return message.channel.send({ embeds: [embed2] });
 		}
 
-		if (args[0] === '3') {
+		if (args[0] === 'info' || 'information') {
 
 			const embed3 = new MessageEmbed()
 				.setColor(0xFDFD97)

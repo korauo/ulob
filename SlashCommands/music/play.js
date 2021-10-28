@@ -26,6 +26,8 @@ module.exports = {
             searchEngine: QueryType.AUTO,
         });
 
+        const queue2 = player.getQueue(interaction.guildId);
+
         const queue = await player.createQueue(interaction.guild, {
             metadata: interaction.channel,
         });

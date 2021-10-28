@@ -17,7 +17,7 @@ module.exports = {
             embeds: [
                 {
                     title: "Now Playing",
-                    description: `🎶 | **${queue.current.title}**! (\`${perc.progress}%\`)`,
+                    description: `🎶 | **${queue.current.title}**! 「\`${perc.progress}%\`」`,
                     fields: [
                         {
                             name: "\u200b",
