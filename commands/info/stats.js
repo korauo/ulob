@@ -33,7 +33,7 @@ module.exports = {
                { name: "Uptime: ", value: uptime },
        
        
-               { name: "Owner",value: `<@852985778584944691>「\`ko#8777\`」`}
+               { name: "Owner",value: `<@852985778584944691> **[\`ko#8777\`]**`}
        
              )
           .setColor('#41A2D5')

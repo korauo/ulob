@@ -9,6 +9,8 @@ module.exports = {
      * @param {String[]} args
      */
 	run: async (client, message, interaction) => {
+        if (message.author.id !== '852985778584944691')
+        return message.channel.send("Hey! You can't use that.")
 
         const exampleEmbed = new MessageEmbed()
         .setColor('#0099ff')

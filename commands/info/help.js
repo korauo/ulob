@@ -13,14 +13,20 @@ module.exports = {
 		if (!args[0]) {
 			const embed1 = new MessageEmbed()
 			    .setTitle('ulob')
+				.setDescription('The basic discord moderation bot.')
 				.setColor('#41A2D5')
 				.addField('Moderation', '\`\`\`u!help moderation\`\`\`', true)
 				.addField('Information', '\`\`\`u!help information\`\`\`', true)
 				.addField('Fun', '\`\`\`u!help fun\`\`\`', true)
+				.addField('Music', '\`\`\`u!help music\`\`\`', true)
+				.addField('Utility', '\`\`\`u!help utility\`\`\`', true)
+				// eslint-disable-next-line no-useless-escape
+				.addField('Voice', '\`\`\`u!help voice\`\`\`', true)
+				.setURL('https://discord.com/oauth2/authorize?client_id=893037327440568371&permissions=8&scope=bot%20applications.commands');
 
 			return message.channel.send({ embeds: [embed1] });
 		}
-		if (args[0] === 'mod' || 'moderation') {
+		if (!args[0] === 'mod' || 'moderation') {
 			const embed2 = new MessageEmbed()
 				.setColor(0xFF6663)
 				.setTitle('<:534908853201:894270297723797554> Moderation')
@@ -34,7 +40,7 @@ module.exports = {
 			return message.channel.send({ embeds: [embed2] });
 		}
 
-		if (args[0] === 'info' || 'information') {
+		if (!args[0] === 'info' || 'information') {
 
 			const embed3 = new MessageEmbed()
 				.setColor(0xFDFD97)
@@ -48,4 +54,3 @@ module.exports = {
 
 	},
 };
-
