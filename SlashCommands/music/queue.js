@@ -5,10 +5,11 @@ module.exports = {
     description: "display the song queue",
     run: async (client, interaction) => {
         const queue = player.getQueue(interaction.guildId);
-        if (!queue?.playing)
-            return interaction.followUp({
+        if (!queue?.playing) {
+return interaction.followUp({
                 content: "No songs are currently playing",
             });
+}
 
         const currentTrack = queue.current;
         const tracks = queue.tracks.slice(0, 10).map((m, i) => {
