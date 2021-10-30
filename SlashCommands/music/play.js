@@ -16,10 +16,11 @@ module.exports = {
     run: async (client, interaction) => {
         const songTitle = interaction.options.getString("songtitle");
 
-        if (!interaction.member.voice.channel)
-            return interaction.followUp({
+        if (!interaction.member.voice.channel) {
+return interaction.followUp({
                 content: "Please join a voice channel first!",
             });
+}
 
         const searchResult = await player.search(songTitle + "lyrics", {
             requestedBy: interaction.user,
@@ -32,15 +33,14 @@ module.exports = {
             metadata: interaction.channel,
         });
 
-        if (!queue.connection)
-            await queue.connect(interaction.member.voice.channel);
+        if (!queue.connection) {await queue.connect(interaction.member.voice.channel);}
 
             const embed = new MessageEmbed()
               .setTitle(`Playing ${songTitle}`)
               .setDescription(`in <#${interaction.member.voice.channel.id}>`)
               .setColor("#41A2D5")
               .setTimestamp()
-              .setFooter(interaction.user.username, interaction.user.displayAvatarURL({ dynamic: true }))
+              .setFooter(interaction.user.username, interaction.user.displayAvatarURL({ dynamic: true }));
 
         interaction.followUp({ embeds: [embed] });
 

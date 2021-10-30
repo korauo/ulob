@@ -57,10 +57,11 @@ module.exports = {
         if (title) return sendLyrics(title);
 
         const queue = player.getQueue(interaction.guildId);
-        if (!queue?.playing)
-            return interaction.followUp({
+        if (!queue?.playing) {
+return interaction.followUp({
                 content: "No music is currently being played",
             });
+}
 
         return sendLyrics(queue.current.title);
     },

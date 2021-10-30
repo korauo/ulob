@@ -5,10 +5,11 @@ module.exports = {
     description: "shows information about the current song",
     run: async (client, interaction) => {
         const queue = player.getQueue(interaction.guildId);
-        if (!queue?.playing)
-            return interaction.followUp({
+        if (!queue?.playing) {
+return interaction.followUp({
                 content: "No music is currently being played",
             });
+}
 
         const progress = queue.createProgressBar();
         const perc = queue.getPlayerTimestamp();

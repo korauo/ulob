@@ -1,4 +1,3 @@
-
 const { Cilent, Message, MessageEmbed } = require('discord.js');
 
 module.exports = {
@@ -23,8 +22,8 @@ module.exports = {
         message.author.displayAvatarURL({
              dynamic: true,
         }),
-   )
+   );
 
         message.channel.send({ embeds: [embed] });
     }
-}
+};
