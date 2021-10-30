@@ -4,9 +4,10 @@
 
 A basic discord moderation bot.
 
+# Invite
 Invite ulob at [dsc.gg/ulob](https://dsc.gg/ulob)
 
-
+# Note
 *The bot is still in development, so expect errors.*
 
 
@@ -27,4 +28,4 @@ The app gets restarted **automatically** when a change is detected. <br>
  npm install
  ```
 
-This is a required step, or else you *will* have errors.
+This is a required step, or else you **will** have errors.
