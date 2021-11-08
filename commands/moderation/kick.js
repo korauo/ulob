@@ -15,7 +15,11 @@ module.exports = {
                 .setColor('#F04947')
                 .setTimestamp();
 
-            return message.channel.send({ embeds: [noPerms] });
+            return message.channel.send({ embeds: [noPerms] }).then(m => {
+				setTimeout(() => {
+					m.delete()
+				}, 1000) 
+			});;
         }
 
 		const mentionMember = message.mentions.members.first();
@@ -68,7 +72,7 @@ module.exports = {
 		}
 		catch (error) {
 			console.log(chalk.red(`An error occured from kick.js / u! commands. Error: ${error}`));
-			message.channel.send(`An unknown error occured: ${error}`);
+			message.channel.send(`An unknown error occured: \`\`\`${error}\`\`\``);
 		}
 	},
 };

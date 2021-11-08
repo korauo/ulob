@@ -36,7 +36,7 @@ module.exports = {
 				return message.reply({ embeds: [purgeMax] });
 			}
 
-			await message.channel.bulkDelete(parseInt(delamount) + 1, true);
+			await message.channel.bulkDelete(parseInt(delamount), true);
 
 			message.channel.bulkDelete(parseInt(delamount), true) ; {
 				const deleteMessage = new MessageEmbed()
@@ -44,7 +44,11 @@ module.exports = {
 					.setColor('#43B581')
 					.setTimestamp();
 
-				message.channel.send({ embeds: [deleteMessage] });
+				message.channel.send({ embeds: [deleteMessage] }).then(m => {
+					setTimeout(() => {
+						m.delete()
+					}, 1000) 
+				});
 			}
 
 		}

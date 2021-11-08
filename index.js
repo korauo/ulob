@@ -1,4 +1,4 @@
-const { Client, Collection } = require("discord.js");
+const { Client, Collection, MessageEmbed } = require("discord.js");
 require('dotenv').config();
 
 const client = new Client({
@@ -7,7 +7,6 @@ const client = new Client({
 });
 
 module.exports = client;
-
 
 client.commands = new Collection();
 client.slashCommands = new Collection();

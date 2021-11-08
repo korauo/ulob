@@ -32,7 +32,9 @@
     "promisify": "^0.0.3",
     "reconlx": "^2.5.1",
     "utf-8-validate": "^5.0.6",
-    "winston": "^3.3.3"
+    "weky": "^3.1.8",
+    "winston": "^3.3.3",
+    "youtube-sr": "^2.0.5"
   },
   "devDependencies": {
     "eslint": "^7.32.0",

@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-const { Message, Client, MessageEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
 	name: "ping",
@@ -9,7 +8,7 @@ module.exports = {
      * @param {Message} message
      * @param {String[]} args
      */
-	run: async (client, message, interaction) => {
+	run: async (client, message) => {
 
 		const embed = new MessageEmbed()
 			.setTitle(':ping_pong: Pong!')
