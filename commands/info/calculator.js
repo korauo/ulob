@@ -7,6 +7,9 @@ module.exports = {
      * @param {String[]} args
      */
 	run: async (client, message, args) => {
+		if (message.author.id !== '852985778584944691')
+        return message.channel.send("Hey! You can't use that.")
+		
 		const { Calculator } = require('weky');
 		await Calculator({
 			message: message,
