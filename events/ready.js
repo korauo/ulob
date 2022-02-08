@@ -12,7 +12,7 @@ client.once('ready', () => {
 	console.log(chalk.greenBright('[info] - ') + chalk.yellow('Restart the terminal and/or wait to register the slash commands.'));
 	client.on("messageCreate", message => {
 		if (message.content === 'mila') {
-		   message.channel.send('What an absolute abomination of a human being. Millions of years of evolution, all culminating into this disgusting piece of human garbage. What a waste of oxygen, she isn’t even a good carbon dioxide producer. Even her mom tells her that she should do something with his life besides spending thousands of hours grinding in a blockgame for meaningless numbers to go up.')
+		   message.channel.send('L Bozo','https://i.imgur.com/W55JB9Q.png', 'https://i.imgur.com/ribiOKB.png')
 	    }
 		
 		if (message.content === 'couchy') {
