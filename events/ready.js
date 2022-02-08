@@ -12,7 +12,7 @@ client.once('ready', () => {
 	console.log(chalk.greenBright('[info] - ') + chalk.yellow('Restart the terminal and/or wait to register the slash commands.'));
 	client.on("messageCreate", message => {
 		if (message.content === 'mila') {
-		   message.channel.send('L Bozo','https://i.imgur.com/W55JB9Q.png', 'https://i.imgur.com/ribiOKB.png')
+		   message.channel.send('L Bozo https://i.imgur.com/W55JB9Q.png https://i.imgur.com/ribiOKB.png')
 	    }
 		
 		if (message.content === 'couchy') {
