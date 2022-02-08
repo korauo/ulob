@@ -14,6 +14,13 @@ client.once('ready', () => {
 		if (message.content === 'mila') {
 		   message.channel.send('What an absolute abomination of a human being. Millions of years of evolution, all culminating into this disgusting piece of human garbage. What a waste of oxygen, she isn’t even a good carbon dioxide producer. Even her mom tells her that she should do something with his life besides spending thousands of hours grinding in a blockgame for meaningless numbers to go up.')
 	    }
+		
+		if (message.content === 'couchy') {
+		   message.channel.send('i think you meant coochie bro')
+	    }
+		if (message.content === 'aman') {
+		   message.channel.send('doesnt want to do a voice reveal thanks leave me alone')
+	    }
 		if (message.author.bot) return false;
 		if (message.content.includes("@here") || message.content.includes("@everyone")) return false;
 		if (message.mentions.has(client.user.id)) {
