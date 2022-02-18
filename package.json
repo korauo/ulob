@@ -30,7 +30,7 @@
     "node-fetch": "^3.1.0",
     "node-superfetch": "^0.2.3",
     "promisify": "^0.0.3",
-    "reconlx": "^2.5.1",
+    "reconlx": "^2.5.2",
     "utf-8-validate": "^5.0.6",
     "weky": "^3.1.8",
     "winston": "^3.3.3",
